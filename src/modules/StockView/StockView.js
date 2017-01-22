@@ -8,16 +8,16 @@ const StockView = observer(class StockView extends Component {
     constructor() {
         super()
         const request = require('request')
-        request("https://finance.google.com/finance/info?client=ig&q=goog", (error, response, body) => {
+        request("https://finance.google.com/finance/info?client=ig&q=AAPL", (error, response, body) => {
             body = body.slice(3)
             body = JSON.parse(body)
             console.log(body)
-            newPrice(body)
+            this.newPrice(body)
         })
     }
 
     newPrice = (arr) => {
-        currentPrice = arr[0]["l"]
+        const currentPrice = arr[0]["l"]
         document.getElementById("price").innerHTML = currentPrice
     }
 
