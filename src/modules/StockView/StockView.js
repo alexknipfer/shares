@@ -21,7 +21,6 @@ const StockView = observer(class StockView extends Component {
         document.getElementById("price").innerHTML = currentPrice
     }
 
-
     render() {
         return (
             <div>
