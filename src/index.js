@@ -1,10 +1,11 @@
 'use babel';
 
 import React from 'react';
+import StockView from './modules/StockView/StockView'
 
 function Main() {
     return(
-         <div>React & Electron Test with ES6</div>
+         <StockView />
     )
 }
 
