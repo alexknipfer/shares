@@ -5,12 +5,8 @@ import { observer } from 'mobx-react'
 
 const StockView = observer(class StockView extends Component {
 
-    newPrice = (arr) => {
-        currentPrice = arr[0]["l"]
-        document.getElementById("price").innerHTML = currentPrice
-    }
-
-    componentDidMount() {
+    constructor() {
+        super()
         const request = require('request')
         request("https://finance.google.com/finance/info?client=ig&q=goog", (error, response, body) => {
             body = body.slice(3)
@@ -19,6 +15,12 @@ const StockView = observer(class StockView extends Component {
             newPrice(body)
         })
     }
+
+    newPrice = (arr) => {
+        currentPrice = arr[0]["l"]
+        document.getElementById("price").innerHTML = currentPrice
+    }
+
 
     render() {
         return (
